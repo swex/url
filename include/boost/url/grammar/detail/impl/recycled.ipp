@@ -15,9 +15,7 @@
 #include <utility>
 
 #ifdef _MSC_VER
-#define WIN32_LEAN_AND_MEAN
-#include <windows.h>
-#include <debugapi.h>
+#include <intrin.h>
 #endif
 
 namespace boost {
@@ -50,7 +48,7 @@ struct all_reports
 #ifdef BOOST_URL_REPORT
     #ifdef _MSC_VER
         if(count_max > 0)
-            ::DebugBreak();
+            __debugbreak();
     #endif
 #endif
     }
